@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formation certifiante : Identifier et gérer les situations complexes - 25-26 mars 2026 - Paris - INOVEOZ Qualiopi">
+    <title>Formation : Identifier et gérer les situations complexes | 25-26 mars 2026</title>
+    <style>
+        /* === RESET & BASE === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Couleurs France Télévisions */
+            --primary-blue: #003D82;
+            --secondary-orange: #FF6B35;
+            --light-blue: #0056B3;
+            --grey-dark: #2C2C2C;
+            --grey-light: #F5F5F5;
+            --white: #FFFFFF;
+            --success: #28A745;
+            --border: #DDDDDD;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--grey-dark);
+            background-color: var(--white);
+        }
+
+        /* === HEADER === */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        header .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-bottom: 0.5rem;
+        }
+
+        header .badge {
+            display: inline-block;
+            background-color: var(--secondary-orange);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* === CONTAINER === */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* === INFO PRATIQUES === */
+        .info-pratiques {
+            background-color: var(--grey-light);
+            padding: 2.5rem 0;
+            border-bottom: 3px solid var(--secondary-orange);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 1.8rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--primary-blue);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .info-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-card p {
+            color: var(--grey-dark);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .info-card strong {
+            color: var(--primary-blue);
+        }
+
+        /* === SECTION === */
+        section {
+            padding: 3.5rem 0;
+        }
+
+        section h2 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 3px solid var(--secondary-orange);
+            display: inline-block;
+        }
+
+        /* === OBJECTIFS === */
+        .objectifs-list {
+            display: grid;
+            gap: 1.3rem;
+            margin-top: 1.5rem;
+        }
+
+        .objectif-item {
+            background: var(--grey-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--secondary-orange);
+            transition: background 0.3s ease;
+        }
+
+        .objectif-item:hover {
+            background: #FAFAFA;
+        }
+
+        .objectif-item strong {
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+        }
+
+        /* === PROGRAMME (Accordéon) === */
+        .accordion-item {
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 1.2rem;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            border-color: var(--primary-blue);
+        }
+
+        .accordion-header {
+            background: var(--grey-light);
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: #E8E8E8;
+        }
+
+        .accordion-header h3 {
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-orange);
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 2000px;
+        }
+
+        .accordion-body {
+            padding: 1.8rem;
+            background: var(--white);
+        }
+
+        .sequence {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--grey-light);
+            border-radius: 8px;
+            border-left: 3px solid var(--light-blue);
+        }
+
+        .sequence h4 {
+            color: var(--primary-blue);
+            margin-bottom: 0.6rem;
+            font-size: 1.1rem;
+        }
+
+        .sequence ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .sequence li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .sequence li:before {
+            content: "▸";
+            color: var(--secondary-orange);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* === MÉTHODES === */
+        .methodes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .methode-card {
+            background: var(--grey-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border-top: 4px solid var(--secondary-orange);
+            transition: transform 0.3s ease;
+        }
+
+        .methode-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .methode-card h4 {
+            color: var(--primary-blue);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        /* === CARTE GOOGLE MAPS === */
+        .map-container {
+            margin: 2rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+
+        /* === TÉLÉCHARGEMENTS === */
+        .download-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+            color: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .download-section h2 {
+            color: var(--white);
+            border: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-orange);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #E55A2A;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background-color: #F0F0F0;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-large {
+            font-size: 1.2rem;
+            padding: 1.3rem 3rem;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background-color: var(--grey-dark);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-orange);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+        }
+
+        .footer-section a {
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary-orange);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section h2 {
+                font-size: 1.6rem;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* === ACCESSIBILITÉ === */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        :focus {
+            outline: 3px solid var(--secondary-orange);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1>Identifier et gérer les situations complexes</h1>
+        <p class="subtitle">Formation certifiante basée sur l'Approche Neurocognitive et Comportementale (ANC)</p>
+        <span class="badge">📅 25-26 mars 2026 • Paris 15ème</span>
+    </header>
+
+    <!-- INFORMATIONS PRATIQUES -->
+    <section class="info-pratiques">
+        <div class="container">
+            <h2>Informations pratiques</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📅 Dates & Durée</h3>
+                    <p>
+                        <strong>25 et 26 mars 2026</strong><br>
+                        2 jours (13 heures)<br>
+                        9h30 - 17h00
+                    </p>
+                </div>
+                <div class="info-card">
+                    <h3>📍 Lieu</h3>
+                    <p>
+                        <strong>Bât. Quadrans</strong><br>
+                        10 rue Lucien Bossoutrot<br>
+                        75015 Paris<br>
+                        <em>Métro : Convention (ligne 12)</em>
+                    </p>
+                </div>
+                <div class="info-card">
+                    <h3>🎓 Organisme</h3>
+                    <p>
+                        <strong>INOVEOZ</strong><br>
+                        Certifié Qualiopi<br>
+                        NDA : 11754287175<br>
+                        Formateur : Alain LE FAUCHEUR
+                    </p>
+                </div>
+                <div class="info-card">
+                    <h3>🎯 Public</h3>
+                    <p>
+                        Managers, chefs d'équipe,<br>
+                        chefs de projet<br>
+                        <strong>Prérequis :</strong> 3 ans d'expérience<br>
+                        en management ou projet
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OBJECTIFS PÉDAGOGIQUES -->
+    <section class="container">
+        <h2>Objectifs pédagogiques</h2>
+        <p style="margin-bottom: 1.5rem;">À l'issue de cette formation, vous serez capable de :</p>
+        <div class="objectifs-list">
+            <div class="objectif-item">
+                <strong>1️⃣ ANALYSER</strong> une situation professionnelle complexe en identifiant les facteurs de complexité, les enjeux et les marges de manœuvre disponibles
+            </div>
+            <div class="objectif-item">
+                <strong>2️⃣ IDENTIFIER ET RÉGULER</strong> vos mécanismes de réactivité (pensées, émotions, comportements) en situation de stress grâce aux outils de l'Approche Neurocognitive et Comportementale (ANC)
+            </div>
+            <div class="objectif-item">
+                <strong>3️⃣ APPLIQUER</strong> des techniques concrètes de Gestion des Modes Mentaux (GMM) et d'intelligence adaptative pour basculer du mode automatique au mode préfrontal adaptatif
+            </div>
+            <div class="objectif-item">
+                <strong>4️⃣ CONCEVOIR</strong> un plan d'action personnel et managérial mobilisant les outils individuels (DESC, KISS) et collectifs (Marguerite, BPR, Cercles de Covey)
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMME -->
+    <section class="container">
+        <h2>Programme détaillé</h2>
+        
+        <!-- JOUR 1 -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>📘 Jour 1 : Comprendre la complexité et le stress (6h30)</h3>
+                <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    <div class="sequence">
+                        <h4>9h30 - 11h00 | Démarrage et cadrage (1h30)</h4>
+                        <ul>
+                            <li>Dynamique de groupe et interconnaissance</li>
+                            <li>Expression des attentes et motivations</li>
+                            <li>Quiz diagnostique (évaluation niveau initial)</li>
+                            <li>Présentation objectifs et règles de confort</li>
+                        </ul>
+                    </div>
+
+                    <div class="sequence">
+                        <h4>11h15 - 12h30 | Complexité et réactivité individuelle (1h15)</h4>
+                        <ul>
+                            <li>Définition de la complexité professionnelle</li>
+                            <li>Le triangle de Beck : Pensées-Émotions-Comportements</li>
+                            <li>Exercice pratique : Questions ouvrantes</li>
+                            <li>Identification de sa propre réactivité</li>
+                        </ul>
+                    </div>
+
+                    <div class="sequence">
+                        <h4>13h45 - 15h15 | Stress et modes mentaux (1h30)</h4>
+                        <ul>
+                            <li>L'équation du stress selon l'ANC</li>
+                            <li>Les 2 modes mentaux : automatique vs adaptatif</li>
+                            <li>Les 4 états d'urgence de l'instinct</li>
+                            <li>Auto-évaluation de sa réactivité</li>
+                        </ul>
+                    </div>
+
+                    <div class="sequence">
+                        <h4>15h30 - 16h45 | Intelligence adaptative (1h15)</h4>
+                        <ul>
+                            <li>Le bug mental et la bascule mentale</li>
+                            <li>Expérimentation exercices GMM (respiration, cadrage)</li>
+                            <li>Le pack aventure : outils concrets</li>
+                            <li>Application Respi Relax</li>
+                        </ul>
+                    </div>
+
+                    <div class="sequence">
+                        <h4>16h45 - 17h00 | Bilan de la journée (15 min)</h4>
+                        <ul>
+                            <li>Expression des ressentis</li>
+                            <li>Ajustements pour le jour 2</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JOUR 2 -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>🛠️ Jour 2 : Pratiquer les outils GMM (6h)</h3>
+                <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    <div class="sequence">
+                        <h4>9h30 - 10h45 | Ancrage et révisions J1 (1h15)</h4>
+                        <ul>
+                            <li>Météo intérieure et jeu énergisant</li>
+                            <li>Pédagogie inversée (binômes présentent concepts J1)</li>
+                            <li>Quiz éclair de révision</li>
+                            <li>Approfondissement des zones floues</li>
+                        </ul>
+                    </div>
+
+                    <div class="sequence">
+                        <h4>11h00 - 12h15 | Pratique intensive GMM (1h15)</h4>
+                        <ul>
+                            <li>Marche en conscience</li>
+                            <li>Mots-clés et expressions clés</li>
+                            <li>Multiplication des points de vue</li>
+                            <li>Pensée stable</li>
+                        </ul>
+                    </div>
+
+                    <div class="sequence">
+                        <h4>13h30 - 15h00 | Gestion individuelle (1h30)</h4>
+                        <ul>
+                            <li>Pyramide moyens/exigences sur cas réels</li>
+                            <li>Scénario catastrophe et 5ème voie</li>
+                            <li>Cercles de Covey (Contrôle, Influence, Préoccupations)</li>
+                            <li>Exercices sur situations participants</li>
+                        </ul>
+                    </div>
+
+                    <div class="sequence">
+                        <h4>15h15 - 16h15 | Gestion collective (1h)</h4>
+                        <ul>
+                            <li>La Marguerite (approche biosystémique)</li>
+                            <li>Cœur de fonction et BPR</li>
+                            <li>Méthode DESC (communication constructive)</li>
+                            <li>Mise en situation et grilles d'observation</li>
+                        </ul>
+                    </div>
+
+                    <div class="sequence">
+                        <h4>16h15 - 16h45 | Évaluation finale (30 min)</h4>
+                        <ul>
+                            <li>Quiz final (15 questions)</li>
+                            <li>Cas pratique noté</li>
+                            <li>Méthode KISS : Plan d'action personnel</li>
+                            <li>Questionnaire satisfaction à chaud</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÉTHODES PÉDAGOGIQUES -->
+    <section class="container">
+        <h2>Méthodes pédagogiques</h2>
+        <div class="methodes-grid">
+            <div class="methode-card">
+                <h4>📚 Apports théoriques</h4>
+                <p>Neurosciences cognitives, ANC, stress adaptatif</p>
+            </div>
+            <div class="methode-card">
+                <h4>🧘 Expérimentations</h4>
+                <p>Exercices GMM guidés, bascule mentale</p>
+            </div>
+            <div class="methode-card">
+                <h4>🎭 Mises en situation</h4>
+                <p>Jeux de rôle, DESC, questionnement ouvert</p>
+            </div>
+            <div class="methode-card">
+                <h4>🤝 Co-construction</h4>
+                <p>Analyse collective, pédagogie inversée</p>
+            </div>
+            <div class="methode-card">
+                <h4>📝 Plan d'action</h4>
+                <p>Méthode KISS personnalisée</p>
+            </div>
+            <div class="methode-card">
+                <h4>📊 Évaluations</h4>
+                <p>Diagnostique, formative, sommative, à froid</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem; padding: 1.5rem; background: var(--grey-light); border-radius: 10px; border-left: 5px solid var(--success);">
+            <h3 style="color: var(--primary-blue); margin-bottom: 0.8rem;">📦 Supports fournis</h3>
+            <p>Livret stagiaire 30 pages • Fiches outils GMM plastifiées • Accès application Respi Relax • Bibliographie et ressources complémentaires</p>
+        </div>
+
+        <div style="margin-top: 1.5rem; padding: 1.5rem; background: var(--grey-light); border-radius: 10px; border-left: 5px solid var(--secondary-orange);">
+            <h3 style="color: var(--primary-blue); margin-bottom: 0.8rem;">✅ Certification</h3>
+            <p><strong>Évaluation sommative :</strong> Quiz 15 questions (40%) + Cas pratique noté (60%)<br>
+            <strong>Seuil de réussite :</strong> 12/20<br>
+            <strong>Attestation de réussite</strong> délivrée si objectifs atteints • Suivi à froid J+30</p>
+        </div>
+    </section>
+
+    <!-- CARTE GOOGLE MAPS -->
+    <section class="container">
+        <h2>📍 Lieu de la formation</h2>
+        <p style="margin-bottom: 1rem;"><strong>Bât. Quadrans</strong> - 10 rue Lucien Bossoutrot, 75015 Paris • Métro Convention (ligne 12)</p>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.1649850000!2d2.2948!3d48.8398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6707c9c3b0001%3A0x1234567890abcdef!2s10%20Rue%20Lucien%20Bossoutrot%2C%2075015%20Paris!5e0!3m2!1sfr!2sfr!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Carte Google Maps - Lieu de formation"></iframe>
+        </div>
+    </section>
+
+    <!-- TÉLÉCHARGEMENTS & INSCRIPTION -->
+    <section class="container">
+        <div class="download-section">
+            <h2>📥 Téléchargements & Inscription</h2>
+            <p style="font-size: 1.1rem; opacity: 0.95; margin-bottom: 1rem;">Programme détaillé et inscription à la formation</p>
+            <div class="download-buttons">
+                <a href="programme.pdf" class="btn btn-secondary" download>
+                    📄 Télécharger le programme (PDF)
+                </a>
+                <a href="mailto:alain.lefaucheur@inoveoz.com?subject=Inscription Formation Situations Complexes - 25-26 mars 2026&body=Bonjour,%0D%0A%0D%0AJe souhaite m'inscrire à la formation « Identifier et gérer les situations complexes » des 25-26 mars 2026.%0D%0A%0D%0ANom :%0D%0APrénom :%0D%0AEntreprise :%0D%0ATéléphone :%0D%0A%0D%0ACordialement" class="btn btn-primary btn-large">
+                    ✉️ S'inscrire à la formation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACCESSIBILITÉ -->
+    <section class="container" style="background: var(--grey-light); padding: 2.5rem; border-radius: 15px; margin-top: 2rem;">
+        <h2>♿ Accessibilité & Handicap</h2>
+        <p style="line-height: 1.8; font-size: 1.05rem;">
+            <strong>Formation accessible aux personnes en situation de handicap.</strong><br><br>
+            
+            <strong>Adaptations disponibles :</strong><br>
+            • <strong>PMR :</strong> Salle accessible, exercices debout adaptés en version assise<br>
+            • <strong>Malvoyance :</strong> Livret gros caractères (Arial 16pt), supports fort contraste<br>
+            • <strong>Surdité :</strong> Interprète LSF sur demande (délai 3 semaines)<br>
+            • <strong>DYS :</strong> Supports structurés 72h avant, temps majoré +30% évaluations<br>
+            • <strong>Neurodivergence :</strong> Planning détaillé, pauses fréquentes<br><br>
+            
+            <strong>Référent handicap :</strong> Alain LE FAUCHEUR - 06 83 33 36 94<br>
+            <strong>Délai signalement :</strong> 15 jours avant formation pour garantie mise en œuvre<br><br>
+            
+            <a href="https://www.inoveoz.com/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-blue); font-weight: 600; text-decoration: underline;">
+                → Consulter notre politique d'inclusion complète (INOVEOZ)
+            </a>
+        </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>📞 Contact Formateur</h3>
+                    <p>
+                        <strong>Alain LE FAUCHEUR</strong><br>
+                        Email : <a href="mailto:alain.lefaucheur@inoveoz.com">alain.lefaucheur@inoveoz.com</a><br>
+                        Téléphone : <a href="tel:+33683333694">06 83 33 36 94</a>
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>🏢 Organisme de Formation</h3>
+                    <p>
+                        <strong>INOVEOZ</strong><br>
+                        N° déclaration activité : 11754287175<br>
+                        Certification Qualiopi ✅<br>
+                        <a href="https://www.inoveoz.com/" target="_blank" rel="noopener noreferrer">www.inoveoz.com</a>
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>🔗 Liens utiles</h3>
+                    <p>
+                        <a href="https://www.inoveoz.com/" target="_blank" rel="noopener noreferrer">Politique d'inclusion & handicap</a><br>
+                        <a href="mailto:alain.lefaucheur@inoveoz.com?subject=Demande d'information">Demande d'information</a><br>
+                        <a href="programme.pdf" download>Programme PDF</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 INOVEOZ - Formation certifiante Qualiopi • Dernière mise à jour : Janvier 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT ACCORDÉON -->
+    <script>
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const allItems = document.querySelectorAll('.accordion-item');
+            
+            // Fermer tous les autres accordéons
+            allItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle l'accordéon cliqué
+            item.classList.toggle('active');
+        }
+
+        // Ouvrir le premier accordéon par défaut
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstAccordion = document.querySelector('.accordion-item');
+            if (firstAccordion) {
+                firstAccordion.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
